@@ -18,6 +18,8 @@ import android.widget.EditText;
 public class ImagesWidgetConfiguration extends Activity {
     public static final String PREFS_NAME = "ImagesWidgetPrefs";
     public static final String PREFS_UPDATE_RATE_FIELD_PATTERN = "UpdateRate-%d";
+    public static final String PREFS_CONTROLS_ACTIVE_FIELD_PATTERN = "ControlsActive-%d";
+    public static final String PREFS_PAUSED_FIELD_PATTERN = "Paused-%d";
     private static final int PREFS_UPDATE_RATE_DEFAULT = 5;
 
     private int appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
