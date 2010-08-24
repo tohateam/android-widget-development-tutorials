@@ -1,17 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
-    android:id="@+id/FrameLayout01"
+    android:id="@+id/widget_frame"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/photo_frame"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout
-        android:id="@+id/LinearLayout01"
+    >
+    <ImageView
+        android:id="@+id/image"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        
-        <ImageView
-            android:id="@+id/image"
+        android:layout_height="wrap_content"
+        src="@drawable/null01"
+        android:scaleType="fitCenter"></ImageView>
+    <FrameLayout
+        android:id="@+id/controls_frame"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/photo_frame">
+        <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:scaleType="fitCenter"></ImageView>
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_preferences"
+            android:id="@+id/config"
+            android:layout_gravity="left"
+            android:background="#00000000"></ImageButton>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/play_pause"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_menu_play_clip"
+            android:background="#00000000"></ImageButton>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/next"
+            android:src="@drawable/ic_menu_forward"
+            android:layout_gravity="right"
+            android:background="#00000000"></ImageButton>
+    </FrameLayout>
 </FrameLayout>
