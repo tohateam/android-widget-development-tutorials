@@ -20,7 +20,12 @@ public class ImagesWidgetConfiguration extends Activity {
     public static final String PREFS_UPDATE_RATE_FIELD_PATTERN = "UpdateRate-%d";
     public static final String PREFS_CONTROLS_ACTIVE_FIELD_PATTERN = "ControlsActive-%d";
     public static final String PREFS_PAUSED_FIELD_PATTERN = "Paused-%d";
-    private static final int PREFS_UPDATE_RATE_DEFAULT = 5;
+    public static final String PREFS_FEED_URL_PATTERN = "FeedURL-%d";
+    
+    // change image every minute, by default
+    // TODO: for a real widget, probably want to switch the units to minutes
+    private static final int PREFS_UPDATE_RATE_DEFAULT = 60;
+    private static final String PREFS_FEED_URL_DEFAULT = "http://api.flickr.com/services/feeds/photos_public.gne?id=26648248@N04&lang=en-us&format=atom";
 
     private int appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
 
@@ -51,8 +56,10 @@ public class ImagesWidgetConfiguration extends Activity {
 
         final SharedPreferences config = getSharedPreferences(PREFS_NAME, 0);
         final EditText updateRateEntry = (EditText) findViewById(R.id.update_rate_entry);
+        final EditText feedUrlEntry = (EditText)findViewById(R.id.feed_url_entry);
 
         updateRateEntry.setText(String.valueOf(config.getInt(String.format(PREFS_UPDATE_RATE_FIELD_PATTERN, appWidgetId), PREFS_UPDATE_RATE_DEFAULT)));
+        feedUrlEntry.setText(config.getString(String.format(PREFS_FEED_URL_PATTERN,  appWidgetId), PREFS_FEED_URL_DEFAULT));
 
         Button saveButton = (Button) findViewById(R.id.save_button);
 
@@ -60,11 +67,14 @@ public class ImagesWidgetConfiguration extends Activity {
 
             public void onClick(View v) {
                 int updateRateSeconds = Integer.parseInt(updateRateEntry.getText().toString());
+                String feedUrl = feedUrlEntry.getText().toString();
 
                 // store off the user setting for update timing
                 SharedPreferences.Editor configEditor = config.edit();
 
                 configEditor.putInt(String.format(PREFS_UPDATE_RATE_FIELD_PATTERN, appWidgetId), updateRateSeconds);
+                configEditor.putString(String.format(PREFS_FEED_URL_PATTERN, appWidgetId), feedUrl);
+                
                 configEditor.commit();
 
                 if (appWidgetId != AppWidgetManager.INVALID_APPWIDGET_ID) {

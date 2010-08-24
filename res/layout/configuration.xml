@@ -7,21 +7,44 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/configure_intro" android:layout_gravity="center_horizontal"/>
-    <LinearLayout
-        android:layout_width="wrap_content"
+        android:text="@string/configure_intro"
+        android:layout_gravity="center_horizontal" />
+    <FrameLayout
         android:layout_height="wrap_content"
-        android:id="@+id/update_rate">
+        android:id="@+id/update_rate"
+        android:layout_width="fill_parent">
         <TextView
             android:id="@+id/TextView01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/configure_update"></TextView>
+            android:text="@string/configure_update"
+            android:layout_gravity="left|center_vertical"></TextView>
         <EditText
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/update_rate_entry"
-            android:hint="@string/udpate_rate_hint"></EditText>
+            android:hint="@string/udpate_rate_hint"
+            android:layout_gravity="right|center_vertical"
+            android:layout_width="wrap_content"></EditText>
+    </FrameLayout>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/feed_url"
+        android:layout_width="fill_parent" android:orientation="vertical">
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/configure_feed_url"></TextView>
+        <EditText
+            android:layout_height="wrap_content"
+            android:id="@+id/feed_url_entry"
+            android:hint="@string/feed_url_hint"
+            android:layout_width="wrap_content"></EditText>
     </LinearLayout>
-<Button android:layout_height="wrap_content" android:layout_gravity="bottom" android:layout_width="fill_parent" android:id="@+id/save_button" android:text="@string/save_config"></Button>
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_width="fill_parent"
+        android:id="@+id/save_button"
+        android:text="@string/save_config"></Button>
 </LinearLayout>
