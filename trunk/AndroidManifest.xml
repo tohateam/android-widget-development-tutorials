@@ -2,8 +2,8 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mamlambo.imageswidget"
-    android:versionCode="2"
-    android:versionName="1.0.2">
+    android:versionCode="3"
+    android:versionName="1.0.3">
     <application
         android:icon="@drawable/icon"
         android:label="@string/app_name"
@@ -37,19 +37,28 @@
             <intent-filter>
                 <action
                     android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                    <data android:scheme="images_widget" />
+                <data
+                    android:scheme="images_widget" />
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/imageswidget_info" />
         </receiver>
-        <receiver android:name=".ImagesWidgetProvider">
+        <receiver
+            android:name=".ImagesWidgetProvider">
             <intent-filter>
-                <action android:name="com.mamlambo.ImagesWidget.WIDGET_CONTROL" />
-                <data android:scheme="images_widget" />
+                <action
+                    android:name="com.mamlambo.ImagesWidget.WIDGET_CONTROL" />
+                <data
+                    android:scheme="images_widget" />
             </intent-filter>
         </receiver>
+        <service
+            android:name=".ImagesWidgetProvider$WidgetService" />
     </application>
     <uses-sdk
         android:minSdkVersion="3" />
+    <uses-permission
+        android:name="android.permission.INTERNET"></uses-permission>
+
 </manifest>

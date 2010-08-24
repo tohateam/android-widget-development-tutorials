@@ -5,4 +5,6 @@
 <string name="configure_update">Update Time</string>
 <string name="udpate_rate_hint">value in seconds</string>
 <string name="save_config">Save</string>
+<string name="feed_url_hint">http://domain.com/feed.rss</string>
+<string name="configure_feed_url">Feed URL</string>
 </resources>
